@@ -12,9 +12,9 @@ def predict():
     try:
         data = request.get_json()
         
-        rainfall = data['Rainfall (mm)']
-        temperature = data['Temperature (°C)']
-        humidity = data['Humidity (%)']
+        rainfall = data['Rainfall']
+        temperature = data['Temperature']
+        humidity = data['Humidity']
         
         if rainfall is None or temperature is None or humidity is None:
             return jsonify({"error": "Invalid data"}), 400
@@ -31,6 +31,5 @@ def predict():
         return jsonify({"error": str(e)}), 500
 
 
-# Run the Flask app
 if __name__ == '__main__':
     app.run(debug=True)
